@@ -13,5 +13,7 @@ jobs:
       env:
         DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
         DOCKER_HUB_LOGIN: ${{ secrets.DOCKER_HUB_LOGIN }}
-    - run: docker push garbetjie/fluentd:v1.11-monolog
+    - run: docker push $DOCKER_HUB_REPO/fluentd:v1.11-monolog
+      env:
+        DOCKER_HUB_REPO: garbetjie
 
