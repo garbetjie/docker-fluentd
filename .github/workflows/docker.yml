@@ -10,5 +10,8 @@ jobs:
       continue-on-error: true
     - run: docker build -t garbetjie/fluentd:v1.11-monolog --cache-from garbetjie/fluentd:v1.11-monolog .
     - run: echo "$DOCKER_HUB_PASSWORD" | docker login --username="$DOCKER_HUB_LOGIN" --password-stdin
+      env:
+        DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
+        DOCKER_HUB_LOGIN: ${{ secrets.DOCKER_HUB_LOGIN }}
     - run: docker push garbetjie/fluentd:v1.11-monolog
 
