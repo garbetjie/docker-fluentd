@@ -1,0 +1,14 @@
+on:
+  push:
+    branches: [master]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - run: docker pull garbetjie/fluentd:v1.11-monolog
+      continue-on-error: true
+    - run: docker build -t garbetjie/fluentd:v1.11-monolog --cache-from garbetjie/fluentd:v1.11-monolog .
+    - run: echo "$DOCKER_HUB_PASSWORD" | docker login --username="$DOCKER_HUB_LOGIN" --password-stdin
+    - run: docker push garbetjie/fluentd:v1.11-monolog
+
