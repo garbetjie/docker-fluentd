@@ -8,10 +8,11 @@ USER fluent
 
 VOLUME /fluentd/data
 
-ENV PORT=20001 \
+ENV AUTH_METHOD="compute_engine" \
+    DATASET=logging \
     LABEL_MAX_LENGTH=128 \
     LOCATION=EU \
-    TABLE=logs \
-    DATASET=logging \
-    AUTH_METHOD="compute_engine" \
-    PRIVATE_KEY_PATH=""
+    LOG_LEVEL=info \
+    PORT=20001 \
+    PRIVATE_KEY_PATH="" \
+    TABLE=logs
