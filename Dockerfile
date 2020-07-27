@@ -1,7 +1,7 @@
-FROM fluent/fluentd:v1.11-debian
+FROM fluent/fluentd:v1.11
 
 USER root
-RUN apk add --no-cache ruby-bigdecimal \
+RUN apk add --no-cache ruby-bigdecimal && \
     fluent-gem install -V fluent-plugin-rewrite-tag-filter tzinfo fluent-plugin-bigquery
 COPY fluent.conf /fluentd/etc/fluent.conf
 USER fluent
