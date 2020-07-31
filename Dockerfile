@@ -20,4 +20,5 @@ ENV AUTH_METHOD="compute_engine" \
     LOG_LEVEL=info \
     PORT=20001 \
     PRIVATE_KEY_PATH="" \
+    PROJECT="" \
     TABLE=logs
