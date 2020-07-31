@@ -13,7 +13,8 @@ VOLUME /fluentd/data
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["fluentd"]
 
-ENV AUTH_METHOD="compute_engine" \
+ENV AUTO_CREATE_TABLE=true \
+    AUTH_METHOD="compute_engine" \
     DATASET=logging \
     LABEL_MAX_LENGTH=128 \
     LOCATION=EU \
